@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Home Page{% endblock %}
+{% block headhtml %}
+<!-- D3 and Plotly -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+{% endblock %}
+{% block content %}
+<h1 class="cover-heading">USA Data Over Time</h1>
+<br>
+
+ <p class="lead">Click a state to view more info</p> 
+ <br>
+<div style="max-width: 100%; margin: auto;" id="usa-states-map" class="js-plotly-plot"></div>
+<br>
+<p class="lead">Use the slider to change the year</p> 
+{% endblock %}
+{% block bodyhtml %}
+<!-- d3 JavaScript -->
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+
+<!-- Our JS -->
+<script type="text/javascript" src="/static/js/States.js"></script>
+<script type="text/javascript" src="/static/js/StatesData.js"></script>
+<script type="text/javascript" src="/static/js/PlotlyUnitedStates.js"></script>
+
+{% endblock %}
