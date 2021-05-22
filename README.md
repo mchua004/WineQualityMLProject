@@ -1,5 +1,7 @@
 # WineQualityMLProject
+What makes a wine good? 
 A machine learning model for predicting wine quality.
+
 
 # Dataset
 [Wine Quality Datasets](http://www3.dsi.uminho.pt/pcortez/wine/)
