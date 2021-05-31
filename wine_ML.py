@@ -39,36 +39,11 @@ def dataset_split(X,y):
     X_train, X_test,y_train,y_test=train_test_split(X,y, random_state=42)
     return X_train, X_test,y_train,y_test
 
-#Creating the linear regression model and fitting the data to it
-def multilinear_regression(X,y):
-    X_train,X_test,y_train,y_test = dataset_split(X,y)
-    RG=make_pipeline(StandardScaler(),LinearRegression())
-    regression = RG.fit(X_train,y_train)
-    y_predict = regression.predict(X_test)
-        # The coefficients
-    print('Coefficients:')
-    for x,cf in enumerate(regression[1].coef_):
-        print(f"{X.columns[x]} = {cf}")
-    # The intercept
-    print('Intercept: %.2f' 
-         % regression[1].intercept_)
-    # The mean squared error
-    print('Mean squared error: %.2f'
-          % mean_squared_error(y_test, y_predict))
-    # The coefficient of determination: 1 is perfect prediction
-    print('Coefficient of determination: %.2f'
-          % r2_score(y_test, y_predict))
-    if r2_score(y_test,y_predict) < 0.7 and mean_squared_error(y_test, y_predict) < 0.7:
-        print('the dataset is NOT well represented by a linear model')
-    return regression
-
-
 # # Principal Component Analysis
 def make_pca(n_components=None):
         pca = make_pipeline(StandardScaler(),
                         PCA(n_components=n_components, random_state=42))
         return pca
-
 
 # # Dimension Reduction with PCA and Classification with kNN
 def kNN_classification(X,y,n_neighbors,n_components):
@@ -151,6 +126,8 @@ def ML_predictions(files, data):
 
 
 
-wtype, qual = ML_predictions(files,data)
-print(wtype,' Wine of ', qual)
+
+if __name__ == "__main__":
+    wtype, qual = ML_predictions(files,data)
+    print(wtype,' Wine of ', qual)      
 
