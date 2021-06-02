@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+    <form action="{{ url_for('prediction') }}" method="post">
+    <fieldset>
+        <legend> Wine physico-chemical properties:</legend>
+        Alcohol:
+        <input name="alcohol" type="float" placeholder="14.23"  required>
+        <br>
+        <br> Chlorides:
+        <input name="chlorides" type="float" placeholder="1.71" required>
+        <br>
+        <br> Citric Acid:
+        <input name="citric_acid" type="float" placeholder="2.43" required>
+        <br>
+        <br>
+        Fixed Acidity:
+        <input name="fixed_acidity" type="float" placeholder="15.6" required>
+        <br>
+        <br> Free Sulfur Dioxide:
+        <input name="free_sulfur_dioxide" type="float" placeholder="127.0" required>
+        <br>
+        <br> Total Sulfur Dioxide:
+        <input name="total_sulfur_dioxide" type="float" placeholder="2.80" required>
+        <br>
+        <br>
+        Density:
+        <input name="density" type="float" placeholder="3.06" required>
+        <br>
+        <br> pH:
+        <input name="pH" type="float" placeholder="0.28" required>
+        <br>
+        <br> Residual Sugar:
+        <input name="residual_sugar" type="float" placeholder="2.29" required>
+        <br>
+        <br>
+        Sulphates:
+        <input name="sulphates" type="float"  placeholder="5.64" required>
+        <br>
+        <br> Volatile Acidity:
+        <input name="volatile_acidity" type="float" placeholder="1.04" required>
+        <br>
+        <br>
+        <input type="submit", value='submit'>
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if wine_result %}
+        <p style="font-size:50px">{{ wine_result }}</p> 
+    {% endif %}
+</div> 
+{% endblock %}

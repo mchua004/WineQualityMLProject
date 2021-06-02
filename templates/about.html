@@ -1,0 +1,125 @@
+{% extends "main.html" %}
+{% block title %}About Page{% endblock %}
+{% block content %}
+{% include "header.html" %}
+<div class="row">
+	<div class="col-md-12">
+		<h1>Our Team...</h1><br>
+	</div>
+</div>
+<div class="row row-cols-1 row-cols-sm g-4">
+	<div class="col">
+		<div class="card border-dark h-100">
+			<img src="/static/images/about/GiadaInnocenti.PNG" class="img-thumbnail" class="card-img-top" alt="..."
+				width="105" height="110">
+			<div class="card-body">
+				<h5 class="card-title">Giada Innocenti </h5>
+				<p class="card-text"> Reseacher </p>
+				<p class="card-text" style="font-style: italic;">Giada has a PhD in industrial chemistry
+					and she is researching how to improve the sustainability of industrial chemical processes.
+					She is data-driven and passionate about data analysis.</p>
+				<a href="https://github.com/giadainnocenti" class="card-link">GitHub
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg></a>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card border-dark h-100">
+			<img src="/static/images/about/male.png" class="img-thumbnail" class="card-img-top" alt="..."
+				width="105" height="118">
+			<div class="card-body">
+				<h5 class="card-title">Mark Chua</h5>
+				<p class="card-text"> Data Analyst </p>
+				<p class="card-text" style="font-style: italic;">Mark ...</p>
+				<a href="https://github.com/mchua004" class="card-link">GitHub
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg></a>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card border-dark h-100">
+			<img src="/static/images/about/male.png" class="img-thumbnail" class="card-img-top"
+				alt="Jourdan's pic" width="105" height="118">
+			<div class="card-body">
+				<h5 class="card-title">Fahar Norman</h5>
+				<p class="card-text"> Electical Engineer?</p>
+
+				<p class="card-text" style="font-style: italic;">Fahar ...</p>
+				<a href="https://github.com/FaharZaheer" class="card-link">GitHub
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg></a>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card border-dark h-100">
+			<img src="/static/images/about/woman.png" class="img-thumbnail" class="card-img-top" alt="..."
+				width="105" height="115">
+			<div class="card-body">
+				<h5 class="card-title">Habiba Sani</h5>
+				<p class="card-text">Student and data analyst</p>
+				<p class="card-text" style="font-style: italic;">Habiba...</p>
+				<a href="https://github.com/Beeba2091?tab=repositories" class="card-link">GitHub
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg></a>
+			</div>
+		</div>
+	</div>
+    <div class="col">
+		<div class="card border-dark h-100">
+			<img src="/static/images/about/Pete.jpg" class="img-thumbnail" class="card-img-top" alt="..."
+				width="105" height="115">
+			<div class="card-body">
+				<h5 class="card-title">Pete Turnham</h5>
+				<p class="card-text">Artist turned into a data analyst</p>
+				<p class="card-text" style="font-style: italic;"> Pete recently transitioned from being an arts administrator 
+                    to working with tech and data systems. In his free time he records podcasts discussing how the art wolrd operates 
+                    and critiques social culture as it forms in the present day.
+                </p>
+				<a href="https://github.com/peteturnham" class="card-link">GitHub
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+					viewBox="0 0 16 16">
+					<path
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+				</svg></a>
+			</div>
+		</div>
+	</div>
+</div><br>
+<div class="row">
+	<div class="col-md-12">
+		<h1>The Data...</h1><br>
+	</div>
+</div>
+<div class="row row-cols-1 row-cols-md-1 g-4">
+	<div class="col">
+		<div class="card border-light h-100">
+			<!-- <img src="..." class="card-img-top" alt="..."> -->
+			<div class="card-body">
+				<h5 class="card-title">Wine Quality Datasets</h5>
+				<p class="card-text">Vinho verde is a unique product from the Minho (northwest) region of Portugal. 
+                    This kind of wine has a medium alcohol content and it is particularly appreciated due to its freshness (specially in the summer). </p>
+				<p class="card-text">For more information, visit the <a
+						href="https://www.sciencedirect.com/science/article/pii/S0167923609001377" class="card-link"> Scientific publication describing the datasets</a></p>
+				<p class="card-text">Link to download source data: <a
+						href="http://www3.dsi.uminho.pt/pcortez/wine/" class="card-link"> Wine Quality Datasets
+					</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
