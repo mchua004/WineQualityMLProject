@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="{{ url_for('index') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Alcohol:
+        <input name="alcohol" type="float" value="14.23" required>
+        <br>
+        <br> Chlorides:
+        <input name="chlorides" type="float" value="1.71" required>
+        <br>
+        <br> Citric Acid:
+        <input name="citric_acid" type="float" value="2.43" required>
+        <br>
+        <br>
+        Fixed Acidity:
+        <input name="fixed_acidity" type="float" value="15.6" required>
+        <br>
+        <br> Free Sulfur Dioxide:
+        <input name="free_sulfur_dioxide" type="float" value="127.0" required>
+        <br>
+        <br> Total Sulfur Dioxide:
+        <input name="total_sulfur_dioxide" type="float" value="2.80" required>
+        <br>
+        <br>
+        Density:
+        <input name="density" type="float" value="3.06" required>
+        <br>
+        <br> pH:
+        <input name="pH" type="float" value="0.28" required>
+        <br>
+        <br> Residual Sugar:
+        <input name="residual_sugar" type="float" value="2.29" required>
+        <br>
+        <br>
+        Sulphates:
+        <input name="sulphates" type="float"  value="5.64" required>
+        <br>
+        <br> Volatile Acidity:
+        <input name="volatile_acidity" type="float" value="1.04" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {%if wine_result%}
+        <p style="font-size:50px">{{ wine_result }}</p> 
+    {% end if %}
+</div>
+</body>
+</html>
