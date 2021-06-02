@@ -1,12 +1,13 @@
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine
 import pickle
-import pandas
-from flask import Flask, jsonify
-
+import pandas as pd
+from wine_ML import wine_quality, wine_type 
+from flask import Flask, render_template, request
 from config import username, password
 
+app = Flask(__name__)
 #################################################
 # Database Setup
 #################################################
@@ -22,9 +23,6 @@ Base.prepare(engine, reflect=True)
 
 # Save reference to the table
 Master_File = Base.classes.winequality_final
-
-import json
-import pandas as pd
 
 # Create our session (link) from Python to the DB
 session = Session(engine)
@@ -55,6 +53,7 @@ for type, fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chloride
     master_file_dict["Alcohol"] = alcohol
     master_file_dict["Quality"] = quality
     master_file.append(master_file_dict)
+
 ########################################
 # CONNECTION TO THE MODELS
 #######################################
@@ -70,6 +69,7 @@ for model in model_list:
         model_dic[f'{model}_{descriptor}'] = pickle.load(open(path+model+'.pkl', 'rb'))
 print(model_dic)
 
+############## ONLINE APPLICATION
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
@@ -89,14 +89,24 @@ def main():
         sulphates     =  request.form['sulphates']
         volatile_acidity                  =  request.form['volatile_acidity']
 
-data = pd.DataFrame.from_dict({'alcohol': [20],
- 'chlorides':[.5],
- 'citric_acid': [2],
- 'fixed_acidity': [30],
- 'free_sulfur_dioxide': [0.5],
- 'total_sulfur_dioxide':[1.0],
- 'density':[1.1],
- 'pH':[3],
- 'residual_sugar': [0.3],
- 'sulphates':[0.2],
- 'volatile_acidity':[5]}, orient='columns')  
+    data = pd.DataFrame.from_dict({'alcohol': alcohol,
+                                    'chlorides': chlorides,
+                                    'citric_acid': citric_acid,
+                                    'fixed_acidity': fixed_acidity,
+                                    'free_sulfur_dioxide': free_sulfur_dioxide,
+                                    'total_sulfur_dioxide': total_sulfur_dioxide,
+                                    'density': density,
+                                    'pH': pH,
+                                    'residual_sugar': residual_sugar,
+                                    'sulphates': sulphates,
+                                    'volatile_acidity': volatile_acidity}, orient='columns')  
+
+    # Predicting the Wine Quality using the loaded model
+    result = {}
+    for descriptor in descriptors:
+        result[descriptor] = model_dic[f'kNN_{descriptor}'].predict(model_dic[f'pca_{descriptor}'].transform(data))
+    wine_result = f"{wine_type(result['type_red']).capitalize()} wine of {wine_quality(result['quality'])}"
+    return render_template('main.html', wine_result=wine_result)
+
+if __name__ == '__main__':
+    app.run(debug=True)

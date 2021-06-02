@@ -50,9 +50,9 @@
 </form>
 <br>
 <div class="result" align="center">
-    {% for key, value in result.items() %}
-        <p style="font-size:50px">{{ value }}</p> 
-    {% end for %}
+    {%if wine_result%}
+        <p style="font-size:50px">{{ wine_result }}</p> 
+    {% end if %}
 </div>
 </body>
 </html>
