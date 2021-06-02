@@ -8,7 +8,7 @@ A machine learning model for predicting wine quality.
 3. PCA (Principal component analysis) was used to reduce the problem dimensions
 4. kNN (k-Nearest Neighbor) was use to classify both the type and the quality of wine.
 5. The wines were divided into two types: red and white and 3 categories for quality: 'good','average','bad'.
-6. The data was deployed by using Heroku and a flask app.
+6. The data was deployed by using Heroku and a flask app. [Check it out!](https://winequalityml.herokuapp.com/prediction)
 
 # Website Mock-up
 
