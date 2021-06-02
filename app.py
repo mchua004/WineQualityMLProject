@@ -1,8 +1,8 @@
-import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-
+import pickle
+import pandas
 from flask import Flask, jsonify
 
 from config import username, password
@@ -55,3 +55,48 @@ for type, fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chloride
     master_file_dict["Alcohol"] = alcohol
     master_file_dict["Quality"] = quality
     master_file.append(master_file_dict)
+########################################
+# CONNECTION TO THE MODELS
+#######################################
+path ='./lib/models/'
+# descriptors that can be predicted
+descriptors = ['type_red','quality']
+# best model and dimension of the problem reduction
+model_list = ['kNN','pca']
+#dictionary containing both PCA and kNN for each descriptor
+model_dic = {}
+for model in model_list:
+    for descriptor in descriptors:
+        model_dic[f'{model}_{descriptor}'] = pickle.load(open(path+model+'.pkl', 'rb'))
+print(model_dic)
+
+@app.route('/', methods=['GET', 'POST'])
+def main():
+    if request.method == 'GET':
+        return(render_template('index.html'))
+
+#Getting Form Input
+    if request.method == 'POST':
+        alcohol =  request.form['alcohol']
+        chlorides =  request.form['chlorides']
+        citric_acid =  request.form['citric_acid']
+        fixed_acidity = request.form['fixed_acidity']
+        free_sulfur_dioxide =  request.form['free_sulfur_dioxide']
+        total_sulfur_dioxide   =  request.form['total_sulfur_dioxide']
+        density      =  request.form['density']
+        pH =  request.form['pH']
+        residual_sugar      =  request.form['residual_sugar']
+        sulphates     =  request.form['sulphates']
+        volatile_acidity                  =  request.form['volatile_acidity']
+
+data = pd.DataFrame.from_dict({'alcohol': [20],
+ 'chlorides':[.5],
+ 'citric_acid': [2],
+ 'fixed_acidity': [30],
+ 'free_sulfur_dioxide': [0.5],
+ 'total_sulfur_dioxide':[1.0],
+ 'density':[1.1],
+ 'pH':[3],
+ 'residual_sugar': [0.3],
+ 'sulphates':[0.2],
+ 'volatile_acidity':[5]}, orient='columns')  
