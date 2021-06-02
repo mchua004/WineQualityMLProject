@@ -66,7 +66,7 @@ model_list = ['kNN','pca']
 model_dic = {}
 for model in model_list:
     for descriptor in descriptors:
-        model_dic[f'{model}_{descriptor}'] = pickle.load(open(path+model+'.pkl', 'rb'))
+        model_dic[f'{model}_{descriptor}'] = pickle.load(open(path+model+'_'+descriptor+'.pkl', 'rb'))
 print(model_dic)
 
 ############## ONLINE APPLICATION
