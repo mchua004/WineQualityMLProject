@@ -3,7 +3,8 @@
   font-family: Arial;
   min-height: 100%;
   min-width: 100%;
- }
+}
+
   /* styling the form in prediction.html */
   form {
     text-align: center;
@@ -21,7 +22,9 @@
   legend { 
     font-size: 25px;
   }
-
+  .container{
+    width:100%;
+  }
   /* playing with the style of the navbar */
   .navbar {
     width:100%;
