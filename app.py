@@ -3,7 +3,7 @@
 #from sqlalchemy import create_engine
 import pickle
 import pandas as pd
-from wine_ML import wine_quality, wine_type 
+from wine_ML import wine_quality, wine_type, plotly_figure_type 
 from flask import Flask, render_template, request, url_for
 
 
@@ -23,12 +23,18 @@ for model in model_list:
     for descriptor in descriptors:
         model_dic[f'{model}_{descriptor}'] = pickle.load(open(path+model+'_'+descriptor+'.pkl', 'rb'))
 print(model_dic)
-
+##################################################
+# READING THE CSV FILE CONTAINING THE MODELED DATA
+##################################################
+df= pd.read_csv(f'lib/data/winequality-final.csv')
+X_df = df.drop(columns=['type','quality'])
+print(X_df.columns)
+X_df = model_dic['pca_type_red'].transform(X_df)
 ############## ONLINE APPLICATION
 @app.route('/')
 def home():
     return(render_template('home.html'))
-    
+
 @app.route('/about')
 def about():
     return(render_template('about.html'))
@@ -39,7 +45,6 @@ def data_analysis():
 
 @app.route('/prediction', methods=['GET', 'POST'])
 def prediction():
-
 #Getting Form Input
     if request.method == 'POST':
         alcohol =  request.form['alcohol']
@@ -65,13 +70,19 @@ def prediction():
                                         'residual_sugar': [residual_sugar],
                                         'sulphates': [sulphates],
                                         'volatile_acidity': [volatile_acidity]}, orient='columns')  
-
+        
         # Predicting the Wine Quality using the loaded model
         result = {}
         for descriptor in descriptors:
             result[descriptor] = model_dic[f'kNN_{descriptor}'].predict(model_dic[f'pca_{descriptor}'].transform(data))
         wine_result = f"{wine_type(result['type_red']).capitalize()} wine of {wine_quality(result['quality'])}"
-        return render_template('prediction.html', wine_result=wine_result)
+        graphJson = plotly_figure_type(X_df, model_dic['pca_type_red'].transform(data), df['type'])
+        
+        
+        data['type'] = result['type_red']
+        data['quality'] = result['quality']
+        
+        return render_template('prediction.html', graphJson=graphJson, wine_result=wine_result)
     else:
         return render_template('prediction.html')
 
