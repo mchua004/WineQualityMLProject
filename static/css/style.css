@@ -1,7 +1,8 @@
  /* styling the body of each page */
- body {
+ body, html {
   font-family: Arial;
-  background-color: white;
+  min-height: 100%;
+  min-width: 100%;
  }
   /* styling the form in prediction.html */
   form {
@@ -20,6 +21,13 @@
   legend { 
     font-size: 25px;
   }
+
+  /* playing with the style of the navbar */
+  .navbar {
+    width:100%;
+    position: relative;
+    background-color: #f1f3d9;
+  }
   /* styling the buttons for each page */ 
   .btn {
     border: 2px solid transparent;
@@ -36,8 +44,40 @@
     display: block;
     width: 400px;
     margin: 0 auto;
+    position: relative;
    }
    
+   h1 {
+    position: relative;  
+    line-height: 0.9;
+    text-align: center;
+  }
+
   .btn:hover {
     background-color: darkolivegreen;
   }
+
+  /* background image */
+  .hero-image { 
+	
+    height: 100%;
+
+    position: relative; 
+    
+    background-image: url(/static/images/wine-background.jpg);
+     /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(255,255,255,0.8);
+}
+ 
