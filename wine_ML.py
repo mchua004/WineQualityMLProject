@@ -55,7 +55,8 @@ def plotly_figure_type(df_compoents,data_point_components, categories):
     graphJson = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJson
 
-
+def new_dataframe(dataframe, series):
+    return dataframe.append(series, ignore_index=True).reset_index(drop=True)
 
 
 
