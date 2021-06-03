@@ -45,17 +45,18 @@ def plotly_figure_type(df_compoents,data_point_components, categories):
         mode="markers",
         name = "predicted data point",
         marker=dict(
-            color='LightSkyBlue',
-            size=10,
+            color='Lime',
+            size=15,
             line=dict(
-                color='MediumPurple',
+                color='DarkGreen',
                 width=3
             )),
         showlegend=True))
     graphJson = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJson
 
-
+def new_dataframe(dataframe, series):
+    return dataframe.append(series, ignore_index=True).reset_index(drop=True)
 
 
 
