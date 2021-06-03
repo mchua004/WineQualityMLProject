@@ -45,10 +45,10 @@ def plotly_figure_type(df_compoents,data_point_components, categories):
         mode="markers",
         name = "predicted data point",
         marker=dict(
-            color='LightSkyBlue',
-            size=10,
+            color='Lime',
+            size=15,
             line=dict(
-                color='MediumPurple',
+                color='DarkGreen',
                 width=3
             )),
         showlegend=True))
