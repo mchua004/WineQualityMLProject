@@ -4,7 +4,10 @@
   min-height: 100%;
   min-width: 100%;
 }
-
+  p{
+    position:relative;
+  }
+  
   /* styling the form in prediction.html */
   form {
     text-align: center;

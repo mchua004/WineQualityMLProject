@@ -8,10 +8,13 @@
         <p style="font-size:50px">{{ wine_result }}</p> 
         <br>
         <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button">Predict another wine</a>
+        <script>
+             
+        </script>
         <br>
         <br>
         <img src="{{url_for('static', filename='images/red-and-white-wine-PLL24KT.jpg')}}" align="center" style="width:100%"/>
-        {% endif %}
+    {% endif %}
 </div> 
 <br>  
 {% if not wine_result %}
