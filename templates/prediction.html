@@ -8,12 +8,15 @@
         <p style="font-size:50px">{{ wine_result }}</p> 
         <br>
         <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button">Predict another wine</a>
-        <script>
-             
-        </script>
         <br>
-        <br>
-        <img src="{{url_for('static', filename='images/red-and-white-wine-PLL24KT.jpg')}}" align="center" style="width:100%"/>
+        <div class="chart" id="scatter-plot"> 
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+            <script type="text/javascript">
+                var graphs = {{ graphJson | safe}};
+                Plotly.plot('scatter-plot',graphs,{});
+            </script>
+        </div>
     {% endif %}
 </div> 
 <br>  

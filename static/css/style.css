@@ -7,7 +7,7 @@
   p{
     position:relative;
   }
-  
+
   /* styling the form in prediction.html */
   form {
     text-align: center;
@@ -24,6 +24,9 @@
   }
   legend { 
     font-size: 25px;
+  }
+  .chart{
+    background-color: none;
   }
   .container{
     width:100%;
