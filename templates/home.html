@@ -2,11 +2,21 @@
 {% block content %}
 {% include "header.html" %}
 
-<div class="jumbotron">
-        <h1 class="display-4">Welcome!</h1>
-        <p class="lead">This is a short story website. Tell your story and build a community</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button">Predict your wine</a>
-</div>
+
+        <h1 class="display-4", align='center'>Welcome!</h1>
+        <div class="row row-cols-1 row-cols-sm g-4">
+                <div class="col">
+                        <img src="{{url_for('static', filename='images/redwhite.jpg')}}" align="center" style="width:100%"/>
+                </div>
+                <br>
+                <div class="col", align='center'>
+                        <p style="white-space: pre; font-family: 'Snell Roundhand'; font-size: 20px;"><em>"The Small Barrel Preserves the best wine"</em> 
+<em>Italian saying</em></p>
+                                <br>
+                <p style='font-size: 30px;', align='center'>What makes a good wine?</p>
+                </div>
+        </div>
+        <br>
+        <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button", align='middle'>Predict your wine</a>
+
 {% endblock %}
