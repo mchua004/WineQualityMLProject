@@ -1,50 +1,40 @@
-* {
-  box-sizing: border-box;
-  }
-   
-  *:focus {
-    outline: none;
-  }
-  body {
+ /* styling the body of each page */
+ body {
   font-family: Arial;
-  background-color: #3498DB;
   padding: 50px;
   }
 
-   
-  .app-title {
-  text-align: center;
-  color: #777;
+ /* styling the form in prediction.html */
+  form {
+    text-align: center;
+    width: 100%;
+  } 
+  input[type=submit] {
+    width : 60%;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 20px;
   }
-   
-   
-  input {
-  text-align: center;
-  background-color: #ECF0F1;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 200;
-  padding: 10px 0;
-  width: 250px;
-  transition: border .5s;
+  legend { 
+    font-size: 30px;
   }
-
-   
+  /* styling the buttons for each page */ 
   .btn {
     border: 2px solid transparent;
     background: #3498DB;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 30px;
     line-height: 25px;
-    padding: 10px 0;
+    padding: 20px 0;
     text-decoration: none;
     text-shadow: none;
     border-radius: 3px;
     box-shadow: none;
     transition: 0.25s;
     display: block;
-    width: 250px;
+    width: 400px;
     margin: 0 auto;
   }
    
