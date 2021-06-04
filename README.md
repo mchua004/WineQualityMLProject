@@ -15,19 +15,19 @@ A machine learning model for predicting wine quality.
 \
 ```
 The home page is simple and tries to explain in a few words the motivation.
-[hom_page](.images/ReadMe/home_page.png)
+![hom_page](.images/ReadMe/home_page.png)
 ```
 \analysis
 ```
-[analysis_page](.images/ReadMe/analysis.png)
+![analysis_page](.images/ReadMe/analysis.png)
 ```
 \prediction
 ```
-[prediction](.images/ReadMe/prediction.gif)
+![prediction](.images/ReadMe/prediction.gif)
 ```
 \about
 ```
-[about_us](.images/ReadMe/about_us.png)
+![about_us](.images/ReadMe/about_us.png)
 
 # Dataset
 [Wine Quality Datasets](http://www3.dsi.uminho.pt/pcortez/wine/)
