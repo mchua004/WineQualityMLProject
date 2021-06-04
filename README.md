@@ -1,5 +1,5 @@
 # WineQualityMLProject
-What makes a wine good? Is data analytics able to predict what physical-chemical characteristics make a good wine? Our team decided to take this challenge.
+What makes a wine good? Is data analytics able to predict what physical-chemical characteristics make a wine good? Our team decided to take this challenge.
 A machine learning model for predicting wine quality.
 
 # General approach to the problem
