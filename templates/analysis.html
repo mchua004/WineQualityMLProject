@@ -1,52 +1,60 @@
 {% extends "main.html" %}
 {% block content %}
-<<<<<<< HEAD
 {% include "header.html" %} 
 
-
-  
-    <div class="container"> 
-        
-        <div class="row">
-            <div class="column1">
-               <h1>Red Wine Quality Predictions</h1>
-               <hr>
-               <img src="../images/red_confusion.png" alt="img">
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
-            </div>
-            <div class="column1">
-                <h1>White Wine Quality Predictions</h1>
-                <hr>
-                <img src="../images/white_confusion.png" alt="img">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
-             </div>
-             <div class="column1">
-                <h1>Red Wines Quality Distribution</h1>
-                <hr>
-                <img src="../images/red_wines_quality_distribution_bar.png" alt="img">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
-             </div>
-             <div class="column1">
-                <h1>White Wines Quality Distribution</h1>
-                <hr>
-                <img src="../images/white_wines_quality_distribution_bar.png" alt="img">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
-             </div>
-             <div class="column1">
-                <h1>Wines Quality Distribution</h1>
-                <hr>
-                <img src="../images/wines_quality_distribution_bar.png" alt="img">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
-             </div>
-            
+<br>
+<h1> Exploratory Analysis </h1> 
+<br>  
+   <div class="row row-cols-1 row-cols-sm g-4"> 
+     
+        <div class="col">
+               <img src="/static/images/Analysis/wine_type_pH.png" alt="img"class="img-thumbnail" class="card-img-top"
+               width="800px" height="700px">
+          </div>
+          <div class='col'>  
+               <p style='text-align: center;'>Ridgeline plots</p>
+               <p style='text-align: justify;'>This plot allows to look at multiple density plots at once. 
+                  The density plots were used to explore the distribution of the physico-chemical variables between different batches of wines.
+                  Specifically, this plot is showing a comparison between red and white wines. The main differences that is worth highlighting are the chlorides and citric acid distribution. 
+                  The chlorides concentration is peaked around 0.1 for the white wines while it is broader for the red wines. 
+                  Interestingly, the citric acid concentration is peaked around three points (0.05, 0.2, 0.4) while it has a main maximum at 0.3 and a smaller one at 0.4. 
+               The <a href='https://wineserver.ucdavis.edu/industry-info/enology/methods-and-techniques/common-chemical-reagents/citric-acid'>citric acid</a>, often times added to increase the acidity, complement a specific flavor or prevent ferric hazes may also compromise the quality of wine.  </p>
+               </div>
+   </div>
+   <br>
+   <h1> Principal Component Analysis (PCA) and K-Nearest Neighboor (kNN) </h1> 
+   <br>  
+      <div class="row row-cols-1 row-cols-sm g-4">
+         <div class="col">
+                <img src="/static/images/Analysis/all_PCA_dimension_reduction_quality.png" alt="img"class="img-thumbnail" class="card-img-top"
+                width="800px" height="700px">
          </div>
+         <div class="col">
+               <img src="/static/images/Analysis/all_PCA_dimension_reduction.png" alt="img"class="img-thumbnail" class="card-img-top"
+               width="800px" height="700px">
+         </div>
+      </div>
+      <div style='text-align: center;'>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
+      </div>   
+      <br>
+      <h1> Confusion Matrix </h1> 
+      <br> 
+      <div class="row row-cols-1 row-cols-sm g-4">
+         <div class="col">
+                <img src="/static/images/Analysis/all_confusion.png" alt="img"class="img-thumbnail" class="card-img-top"
+                width="900px" height="900px">
+         </div> 
+         <div class="col">
+            <img src="/static/images/Analysis/wines_quality_distribution_bar.png" alt="img" class="img-thumbnail" class="card-img-top"
+            width="600px" height="900px" style="position: relative;">
+         </div>
+      </div>
+      <div style='text-align: center;' >
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor velit id est ac mi justo porttitor.</p>
+      </div>
+            
         
    
-
-
-{% endblock %} 
-=======
-{% include "header.html" %}
-<!--write your code here-->
 {% endblock %}
->>>>>>> 169f3cd9e6dd936552834d5c2fb519430f09c8db
+
