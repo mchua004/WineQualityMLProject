@@ -1,103 +1,9 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import pandas as pd
-import os
-import glob
-import matplotlib.pyplot as plt
-import seaborn as sn
-import matplotlib
-import numpy as np
-from joypy import joyplot
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
-from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix, plot_confusion_matrix
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import (KNeighborsClassifier,
-                               NeighborhoodComponentsAnalysis)
-
-
-# In[2]:
-
-
-# setting up the path to read the datafiles
-root = './data/*final.csv'
-files = glob.glob(root)
-
-def read_csv(files):
-    for file in files:
-        df = pd.read_csv(file)
-    return df
-
-def dataset_split(X,y):
-#divide the data into training and testing set 
-    X_train, X_test,y_train,y_test=train_test_split(X,y, random_state=42)
-    return X_train, X_test,y_train,y_test
-
-# # Principal Component Analysis
-def make_pca(n_components=None):
-        pca = make_pipeline(StandardScaler(),
-                        PCA(n_components=n_components, random_state=42))
-        return pca
-
-# # Dimension Reduction with PCA and Classification with kNN
-def kNN_classification(X,y,n_neighbors,n_components):
-    X_train,X_test,y_train,y_test = dataset_split(X,y)
-    # Use a nearest neighbor classifier to evaluate the methods
-    knn = KNeighborsClassifier(n_neighbors=n_neighbors)
-    pca = make_pca(n_components).fit(X_train,y_train)
-    # Fit a nearest neighbor classifier on the embedded training set
-    knn.fit(pca.transform(X_train), y_train)
-    return knn, pca
-
-
-def ML_wine_quality(files, wine_type, column_target):
-    df = read_csv(files)
-    df_wine = pd.get_dummies(df, columns=['type'])
-    if wine_type != 'all':
-        df_wine = df_wine[df_wine[f'type_{wine_type}'] == 1]
-        
-    type_column = list(df_wine.filter(regex='type_').columns)
-    df_wine = df_wine.drop(columns=type_column[1])
-    if column_target == 'type':
-        column_target = [type_column[0]]
-        column_target.extend(['quality'])
-
-    else:
-        column_target = [column_target]
-        column_target.extend([type_column[0]])
-    
-    # setting up the data for quality evaluation
-    X = df_wine.drop(columns=column_target)
-    y = df_wine[column_target[0]]
-
-    # find the optimal number of components
-    matplotlib.rc_file_defaults()
-    n_components = 4
-    
-    #dimension reduction and classification 
-    n_neighbors = 3
-    knn, pca = kNN_classification(X,y,n_neighbors,n_components)
-    return knn,pca
-
-
-data = pd.DataFrame.from_dict({'alcohol': [20],
- 'chlorides':[.5],
- 'citric_acid': [2],
- 'fixed_acidity': [30],
- 'free_sulfur_dioxide': [0.5],
- 'total_sulfur_dioxide':[1.0],
- 'density':[1.1],
- 'pH':[3],
- 'residual_sugar': [0.3],
- 'sulphates':[0.2],
- 'volatile_acidity':[5]}, orient='columns')
-
+import plotly
+import plotly.graph_objects as go
+import plotly.express as px
+import json
 # predict the wine quality
 def wine_quality(prediction):
     if prediction < 5 :
@@ -116,18 +22,46 @@ def wine_type(prediction):
         wtype='red'
     return wtype
 
+def plotly_figure_type(df_compoents,data_point_components, categories):
+    # plotting the dataset that we already have
+    fig = px.scatter(df_compoents, x=0, y=1, color=categories)
+    #changing the marker size
+    fig.update_traces(marker=dict(size=10,line=dict(width=1.5, color='DarkSlateGrey')))
+    #updating the plot layout
+    fig.update_layout(
+    xaxis_title="PC 1",
+    yaxis_title="PC 2",
+    title={'text':  "First two principal components of PCA",
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor':'top'},
+    font_family= 'Arial',
+    legend_title="Wine Color")
+    #adding the new point evaluated
+    fig.add_trace(
+    go.Scatter(
+        x=[data_point_components[0][0]],
+        y=[data_point_components[0][1]],
+        mode="markers",
+        name = "predicted data point",
+        marker=dict(
+            color='Lime',
+            size=15,
+            line=dict(
+                color='DarkGreen',
+                width=3
+            )),
+        showlegend=True))
+    graphJson = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJson
 
-def ML_predictions(files, data):
-    t_knn,t_pca = ML_wine_quality(files,'all', 'type')
-    wtype = wine_type(t_knn.predict(t_pca.transform(data)))
-    knn,pca = ML_wine_quality(files,wtype,'quality')
-    qual = wine_quality(knn.predict(pca.transform(data)))
-    return (wtype.capitalize(), qual.capitalize())
-
+def new_dataframe(dataframe, series):
+    return dataframe.append(series, ignore_index=True).reset_index(drop=True)
 
 
 
 if __name__ == "__main__":
-    wtype, qual = ML_predictions(files,data)
+    wtype = wine_quality(0)
+    qual = wine_quality(8)
     print(wtype,' Wine of ', qual)      
 

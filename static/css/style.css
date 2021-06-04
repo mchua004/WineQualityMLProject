@@ -1,10 +1,14 @@
  /* styling the body of each page */
- body {
+ body, html {
   font-family: Arial;
-  padding: 50px;
+  min-height: 100%;
+  min-width: 100%;
+}
+  p{
+    position:relative;
   }
 
- /* styling the form in prediction.html */
+  /* styling the form in prediction.html */
   form {
     text-align: center;
     width: 100%;
@@ -13,17 +17,30 @@
     width : 60%;
     padding: 10px 32px;
     text-decoration: none;
+    background-color: #f1f3d9;
     margin: 4px 2px;
     cursor: pointer;
     font-size: 20px;
   }
   legend { 
-    font-size: 30px;
+    font-size: 25px;
+  }
+  .chart{
+    background-color: none;
+  }
+  .container{
+    width:100%;
+  }
+  /* playing with the style of the navbar */
+  .navbar {
+    width:100%;
+    position: relative;
+    background-color: #f1f3d9;
   }
   /* styling the buttons for each page */ 
   .btn {
     border: 2px solid transparent;
-    background: #3498DB;
+    background: olivedrab;
     color: #ffffff;
     font-size: 30px;
     line-height: 25px;
@@ -34,10 +51,42 @@
     box-shadow: none;
     transition: 0.25s;
     display: block;
-    width: 400px
+    width: 400px;
     margin: 0 auto;
-  }
+    position: relative;
+   }
    
-  .btn:hover {
-    background-color: #2980B9;
+   h1 {
+    position: relative;  
+    line-height: 0.9;
+    text-align: center;
   }
+
+  .btn:hover {
+    background-color: darkolivegreen;
+  }
+
+  /* background image */
+  .hero-image { 
+	
+    height: 100%;
+
+    position: relative; 
+    
+    background-image: url(/static/images/wine-background.jpg);
+     /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(255,255,255,0.8);
+}
+ 
