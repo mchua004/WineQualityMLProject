@@ -1,11 +1,13 @@
  /* styling the body of each page */
  body, html {
+  font-size: min(max(16px, 4vw), 22px);
   font-family: Arial;
   min-height: 100%;
   min-width: 100%;
 }
   p{
     position:relative;
+    font-size: 15px;
   }
 
   /* styling the form in prediction.html */
