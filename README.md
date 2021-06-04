@@ -15,14 +15,16 @@ A machine learning model for predicting wine quality.
 \
 ```
 The home page is simple and tries to explain in a few words the motivation.
-![hom_page](./images/ReadMe/home_page.png)
+![home_page](./images/ReadMe/home_page.png)
 ```
 \analysis
 ```
+The main take home messages and conclusions from the data analysis are reported in this page with additional information sources.
 ![analysis_page](./images/ReadMe/analysis.png)
 ```
 \prediction
 ```
+The prediction page is the fun page, the user can insert its own prediction and a plot will be generated showing where the predicted point is with respect to the model points. The plot is updated live until the user leaves the page, at that point the plot refreshes.
 ![prediction](./images/ReadMe/prediction.gif)
 ```
 \about
