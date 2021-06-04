@@ -3,9 +3,9 @@
 #from sqlalchemy import create_engine
 import pickle
 import pandas as pd
-from wine_ML import wine_quality, wine_type, plotly_figure_type, new_dataframe 
+from wine_ML import wine_quality, wine_type, plotly_figure_type, new_dataframe, rm_tmp_file 
 from flask import Flask, render_template, request
-from os import path, remove
+from os import path
 
 
 app = Flask(__name__)
@@ -32,17 +32,17 @@ df_init = pd.read_csv(f'lib/data/winequality-final.csv')
 ############## ONLINE APPLICATION
 @app.route('/')
 def home():
-    remove('lib/data/winequality-flask.csv')
+    rm_tmp_file()
     return(render_template('home.html'))
 
 @app.route('/about')
 def about():
-    remove('lib/data/winequality-flask.csv')
+    rm_tmp_file()
     return(render_template('about.html'))
 
 @app.route('/data_analysis')
 def data_analysis():
-    remove('lib/data/winequality-flask.csv')
+    rm_tmp_file()
     return(render_template('analysis.html'))
 
 @app.route('/prediction', methods=['GET', 'POST'])

@@ -6,7 +6,7 @@
         <h1 class="display-4",style='font-size=20px' align='center'>Welcome!</h1>
         <div class="row row-cols-1 row-cols-sm g-4">
                 <div class="col">
-                        <img src="{{url_for('static', filename='images/redwhite.jpg')}}" align="center" style="width:100%"/>
+                        <img src="{{url_for('static', filename='images/redwhite.jpg')}}" align="center" style="width:90%"/>
                 </div>
                 <br>
                 <div class="col", align='center'>
@@ -14,9 +14,20 @@
 <em>Italian saying</em></p>
                                 <br>
                 <p style='font-size: 30px;', align='center'>What makes a good wine?</p>
+                <br>
+                <p style='font-size: 25px;', align='left'>Can data science help to discard unfortunate wine batches?</p>
+                <br>
+                <p style='font-size: 25px;', align='right'>What are the most important physico-chemical properties to evaluate quality?</p>
+                <br>
+                <br>
+                <p style='font-size: 25px;', align='justify'>Hopefully, you'll find the answers to some of the questions you may have in this web-app.
+                         If you are here just to test the prediction model go ahead an push the button to start predicting!</p>
+                         <br>
+                         <br>
+                         <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button", align='middle'>Predict your wine</a>
                 </div>
+
         </div>
-        <br>
-        <a class="btn btn-primary btn-lg" href="{{url_for('prediction')}}" role="button", align='middle'>Predict your wine</a>
+        
 
 {% endblock %}

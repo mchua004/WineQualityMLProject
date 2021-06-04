@@ -4,6 +4,7 @@ import plotly
 import plotly.graph_objects as go
 import plotly.express as px
 import json
+import os
 # predict the wine quality
 def wine_quality(prediction):
     if prediction < 5 :
@@ -58,6 +59,11 @@ def plotly_figure_type(df_compoents,data_point_components, categories):
 def new_dataframe(dataframe, series):
     return dataframe.append(series, ignore_index=True).reset_index(drop=True)
 
+def rm_tmp_file():
+    try:
+        os.remove('lib/data/winequality-flask.csv')
+    except:
+        pass
 
 
 if __name__ == "__main__":

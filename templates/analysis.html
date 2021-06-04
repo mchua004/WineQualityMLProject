@@ -5,7 +5,7 @@
 <br>
 <h1> Exploratory Analysis </h1> 
 <br>  
-   <div class="row row-cols-1 row-cols-sm g-4"> 
+   <div class="row row-cols-1 row-cols-sm g-4"  style="align-items: center;"> 
      
         <div class="col">
                <img src="/static/images/Analysis/wine_type_pH.png" alt="img"class="img-thumbnail" class="card-img-top"
@@ -24,7 +24,7 @@
    <br>
    <h1> Principal Component Analysis (PCA) and K-Nearest Neighboor (kNN) </h1> 
    <br>  
-      <div class="row row-cols-1 row-cols-sm g-4">
+      <div class="row row-cols-1 row-cols-sm g-4" style="align-items: center;">
          <div class="col">
                 <img src="/static/images/Analysis/all_PCA_dimension_reduction_quality.png" alt="img"class="img-thumbnail" class="card-img-top"
                 width="800px" height="700px">
@@ -34,13 +34,24 @@
                width="800px" height="700px">
          </div>
       </div>
-      <div style='text-align: center;'>
-         <p>Principal Component Analysis PCA what is it, what it did for us, kNN</p>
+      <div style='text-align: justify;'>
+         <p><a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a> is commonly used to reduce the dimensionality of a problem. The dimensionality reduction is performed by projection the real sample space into a perpendicular smaller coordinates substes, called principal components. 
+            Each principal component represents all the dimensions of the original problem and describe a certain percentage of the variance of the sample. Usually, the first two components are already able to well represent the sample space. In this case, 
+         we used 4 principal components to represents our sample size describing the over the 90% of the sample variance.</p>
+         <p><a href='https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm'>kNN </a>is a classification method that classifies an object according to the most common feature among its k surrounding nearest neighbors. 
+            k was set to 3 while solving the problem described in this web app.
+         </p>
+         <hr style='position: relative;'>
+      <p>The two plots above represents the clustering obtained by reducing the dataset with PCA. The model PCA+kNN works extremely well if the type of wine (red or white) is what we want to predict (accuracy of 98%). 
+         The goodness of the model is well represented by the clean clustering shown in the figure on the right hand-side. In contrast, on the left hand side the clustering obtained for the wine quality using numerical values from 
+         3 to 9 is shown. In this case the accuracy is only 52% and it is possible to see that it is hard to distinguish the various cluster. The accuracy obtained for the quality classificaion could be improved by using more complex machine learning algorithm such as the <a href='https://en.wikipedia.org/wiki/Support-vector_machine'>Support-Vector Machines (SVM)</a>.
+         To understand if the 52% accuracy is an acceptable result the confusion matrix was taken into account and the considerations are reported in the next paragraph.
+      </p>
       </div>   
       <br>
       <h1> Confusion Matrix </h1> 
       <br> 
-      <div class="row row-cols-1 row-cols-sm g-4">
+      <div class="row row-cols-1 row-cols-sm g-4" style="align-items: center;">
          <div class="col">
                 <img src="/static/images/Analysis/all_confusion.png" alt="img"class="img-thumbnail" class="card-img-top"
                 width="900px" height="900px">
@@ -50,11 +61,24 @@
             width="600px" height="900px" style="position: relative;">
          </div>
       </div>
-      <div style='text-align: center;' >
-            <p>What is telling you and explain the take home message.</p>
+      <div style='text-align: justify;' >
+            <p>The <a href="https://en.wikipedia.org/wiki/Confusion_matrix"><a>Confusion Matrix</a> is used to understand how realiable are the predictions of a model. Essentially it is a table which is telling how many times the prediction of the model matched the actual value.
+            In the presented investigation the model is strongly biased towards the average quality wines, that is not surprising considering that the samples mainly average quality wines (shown in right hand-side side plot as blue bars). This model missed all the excellent quality wines (rated 9) but was able to correctly predict some high quality wines (rated 8).
+         Overall, this model is okay since it did not predict any low quality wine as good quality and it is very robust to predict average quality wines. In the end, it is better losing some good batches as average but being sure that the good prediction are actually good or average at worst.</p>
+         <hr style="position: relative;">
+         <p> <em> Additional Considerations: </em>  </p>
+         <p>It is important to highlight that this model was optimized using the Vinho Verde datasets. This datasets is containing all wines coming from Portugal, the goodness of the model could not be the same for wines coming from other regions since the land and the climate where the vines grow can strongly affect the quality of the grapes used and the concentration of some of the chemical in the wine such as the chlorides.
+            Finally, the model quality predictions could be improved by increasing the number of samples of low and high quality.
+         </p>
       </div>
-            
-        
-   
+      <hr> 
+      <p> Other resources that can of your interest: </p>      
+        <li style="position: relative;">Alcohol: <a href="https://jackyblisson.com/alcohol-in-wine/">How alcohol in wine shapes flavor</a></li>
+        <li style="position: relative;">Chlorides: <a href="https://www.scielo.br/j/cta/a/HQsrPrPMNZYgRzSKtrjHyHh/?lang=en&format=pdf">Chloride concentration in red wines: influence of terroir and grape type</a></li>
+        <li style="position: relative;">Chlorides: <a href="https://www.awri.com.au/wp-content/uploads/2018/08/s1530.pdf">https://www.scielo.br/j/cta/a/HQsrPrPMNZYgRzSKtrjHyHh/?lang=en&format=pdf</a></li>
+        <li style="position: relative;">Fixed Acidity: <a href="https://waterhouse.ucdavis.edu/whats-in-wine/fixed-acidity">What is in wine?</a></li>
+        <li style="position: relative;">Sulfites: <a href="https://daily.sevenfifty.com/how-sulfites-affect-a-wines-chemistry/">How sulfites affect the wine chemistry</a></li>
+        <li style="position: relative;">pH: <a href="https://www.winemag.com/2019/06/19/what-is-acidity-in-wine/">How acid and pH affect your wine.</a></li>
+      <li style="position: relative;">Confusion Matrix: <a href="https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">Confusion Maxtrix Terminology</a></li>
 {% endblock %}
 
