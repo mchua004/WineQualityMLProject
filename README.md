@@ -10,22 +10,24 @@ A machine learning model for predicting wine quality.
 5. The wines were divided into two types: red and white and 3 categories for quality: 'good','average','bad'.
 6. The data was deployed by using Heroku and a flask app. [Check it out!](https://winequalityml.herokuapp.com/)
 
-# Exploratory Analysis of Wines
-The main differences between red and white wines were highlighted by using Ridgeline plots.
-
 # Flask structure and web page images
 ```
 \
 ```
+The home page is simple and tries to explain in a few words the motivation.
+[hom_page](.images/ReadMe/home_page.png)
 ```
 \analysis
 ```
+[analysis_page](.images/ReadMe/analysis.png)
 ```
 \prediction
 ```
+[prediction](.images/ReadMe/prediction.gif)
 ```
 \about
 ```
+[about_us](.images/ReadMe/about_us.png)
 
 # Dataset
 [Wine Quality Datasets](http://www3.dsi.uminho.pt/pcortez/wine/)
