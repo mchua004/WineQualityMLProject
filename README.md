@@ -13,6 +13,8 @@ A machine learning model for predicting wine quality.
 The model development can be found along with the exploratory analysis in the Jupyter notebook called [Exploratory Analysis](./Exploratory_analysis.ipynb), while the model testing can be found in the one called [Model_test](Model_test.ipynb). \
 [Procfile](Procfile) and [Requirements](Requirements.txt) are necessary fo the deployment on Heroku as explained [here](https://stackabuse.com/deploying-a-flask-application-to-heroku). A virtual environment was created but ignored while pushing to GitHub. \
 Finally, [app.py](app.py) is the code for our web app and relies on the functions reported in [wine_ML.py](wine_ML.py) and all the files in the folders [lib](lib),[static](static) and [templates](templates).
+__________
+Check out our Power Point presentation at this [link](https://onedrive.live.com/edit.aspx?resid=23BC462C5986B9DB!2715&ithint=file%2cpptx&authkey=!APwkyn0bd6ZH5Uw).
 
 # Flask structure and web page images
 ```
